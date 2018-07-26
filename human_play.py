@@ -78,7 +78,10 @@ def run():
         human = Human()
 
         # set start_player=0 for human first
-        game.start_play(human, mcts_player, start_player=1, is_shown=1)
+        first_player = input("\n\n\nPlease input 0(human first) or 1(mcts_player first):")
+        while first_player not in ['0', '1']:
+            first_player = input("Please input 0(human first) or 1(mcts_player first):")
+        game.start_play(human, mcts_player, start_player=int(first_player), is_shown=1)
     except KeyboardInterrupt:
         print('\n\rquit')
 
